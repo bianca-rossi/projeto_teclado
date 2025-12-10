@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Teclado Musical - STM32 Assembly</title>
-        <style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teclado Musical - STM32 Assembly</title>
+    <style>
       * {
         margin: 0;
         padding: 0;
@@ -311,76 +311,65 @@
         }
       }
     </style>
-    </head>
-    <body>
-        <!-- Header -->
-        <div class="header">
-            <div class="header-content">
-                <h1>🎹 Teclado Musical STM32</h1>
-                <div class="subtitle">
-                    <span>Projeto de Microcontroladores (ELTD13A)</span>
-                    <span class="chip">ARM Cortex-M3</span>
-                    <span class="chip">Assembly</span>
-                    <span class="chip">PWM Sound</span>
-                </div>
-            </div>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header">
+      <div class="header-content">
+        <h1>🎹 Teclado Musical STM32</h1>
+        <div class="subtitle">
+          <span>Projeto de Microcontroladores (ELTD13A)</span>
+          <span class="chip">ARM Cortex-M3</span>
+          <span class="chip">Assembly</span>
+          <span class="chip">PWM Sound</span>
         </div>
+      </div>
+    </div>
 
-        <!-- Main Container -->
-        <div class="container">
-            <!-- Navigation -->
-            <div class="nav">
-                <div class="nav-item active"
-                    onclick="scrollToSection('gpio-rcc')">
-                    GPIO/RCC
-                </div>
-                <div class="nav-item" onclick="scrollToSection('timer-lcd')">
-                    Timer/LCD
-                </div>
-                <div class="nav-item"
-                    onclick="scrollToSection('main')">Main</div>
-                <div class="nav-item" onclick="scrollToSection('config-timer')">
-                    Config Timer
-                </div>
-                <div class="nav-item" onclick="scrollToSection('config-gpio')">
-                    Config GPIO
-                </div>
-                <div class="nav-item"
-                    onclick="scrollToSection('oitavas')">Oitavas</div>
-                <div class="nav-item"
-                    onclick="scrollToSection('timbre')">Timbre</div>
-                <div class="nav-item" onclick="scrollToSection('leds')">VU
-                    Meter</div>
-                <div class="nav-item" onclick="scrollToSection('lcd')">LCD</div>
-                <div class="nav-item"
-                    onclick="scrollToSection('tabelas')">Tabelas</div>
-                <div class="nav-item"
-                    onclick="scrollToSection('scan')">Scan</div>
-                <div class="nav-item"
-                    onclick="scrollToSection('tocar')">Tocar</div>
-                <div class="nav-item"
-                    onclick="scrollToSection('melodia')">Melodia</div>
-                <div class="nav-item"
-                    onclick="scrollToSection('potenciometro')">
-                    Potenciômetro
-                </div>
-            </div>
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Navigation -->
+      <div class="nav">
+        <div class="nav-item active" onclick="scrollToSection('gpio-rcc')">
+          GPIO/RCC
+        </div>
+        <div class="nav-item" onclick="scrollToSection('timer-lcd')">
+          Timer/LCD
+        </div>
+        <div class="nav-item" onclick="scrollToSection('main')">Main</div>
+        <div class="nav-item" onclick="scrollToSection('config-timer')">
+          Config Timer
+        </div>
+        <div class="nav-item" onclick="scrollToSection('config-gpio')">
+          Config GPIO
+        </div>
+        <div class="nav-item" onclick="scrollToSection('oitavas')">Oitavas</div>
+        <div class="nav-item" onclick="scrollToSection('timbre')">Timbre</div>
+        <div class="nav-item" onclick="scrollToSection('leds')">VU Meter</div>
+        <div class="nav-item" onclick="scrollToSection('lcd')">LCD</div>
+        <div class="nav-item" onclick="scrollToSection('tabelas')">Tabelas</div>
+        <div class="nav-item" onclick="scrollToSection('scan')">Scan</div>
+        <div class="nav-item" onclick="scrollToSection('tocar')">Tocar</div>
+        <div class="nav-item" onclick="scrollToSection('melodia')">Melodia</div>
+        <div class="nav-item" onclick="scrollToSection('potenciometro')">
+          Potenciômetro
+        </div>
+      </div>
 
-            <!-- Code Sections -->
+      <!-- Code Sections -->
 
-            <!-- SLIDE 1: Definições de GPIO e RCC -->
-            <div id="gpio-rcc" class="code-section">
-                <div class="code-header">
-                    <div class="code-title">Definições de Hardware - GPIO e
-                        RCC</div>
-                    <div class="window-controls">
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                    </div>
-                </div>
-                <div class="code-content">
-                    <pre><span class="directive">RCC_APB1ENR</span> <span class="keyword">EQU</span> <span class="number">0x40021000+0x1C</span>  <span class="comment">; Clock dos Timers</span>
+      <!-- SLIDE 1: Definições de GPIO e RCC -->
+      <div id="gpio-rcc" class="code-section">
+        <div class="code-header">
+          <div class="code-title">Definições de Hardware - GPIO e RCC</div>
+          <div class="window-controls">
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+          </div>
+        </div>
+        <div class="code-content">
+          <pre><span class="directive">RCC_APB1ENR</span> <span class="keyword">EQU</span> <span class="number">0x40021000+0x1C</span>  <span class="comment">; Clock dos Timers</span>
 
 <span class="comment">; Máscaras de configuração</span>
 <span class="directive">hab_gpioc_gpiob_gpioa_afio</span> <span class="keyword">EQU</span> <span class="number">0x1D</span>  <span class="comment">; Habilita GPIOs e AFIO</span>
@@ -406,36 +395,31 @@
 <span class="comment">; Registros da GPIOC (botões SW15-SW17)</span>
 <span class="directive">GPIOC_CRH</span>   <span class="keyword">EQU</span> <span class="number">0x40011000+0x04</span>
 <span class="directive">GPIOC_IDR</span>   <span class="keyword">EQU</span> <span class="number">0x40011000+0x08</span></pre>
-                </div>
-                <div class="explanation">
-                    <h3>Explicação</h3>
-                    <p>
-                        Estes são os endereços de memória dos periféricos que
-                        usamos no
-                        STM32F103. Definimos os registradores das três portas
-                        GPIO (A, B, C)
-                        que controlam os pinos de entrada (botões) e saída
-                        (LEDs/LCD). O
-                        RCC_APB2ENR habilita os clocks necessários para que os
-                        periféricos
-                        funcionem.
-                    </p>
-                </div>
-            </div>
+        </div>
+        <div class="explanation">
+          <h3>Explicação</h3>
+          <p>
+            Estes são os endereços de memória dos periféricos que usamos no
+            STM32F103. Definimos os registradores das três portas GPIO (A, B, C)
+            que controlam os pinos de entrada (botões) e saída (LEDs/LCD). O
+            RCC_APB2ENR habilita os clocks necessários para que os periféricos
+            funcionem.
+          </p>
+        </div>
+      </div>
 
-            <!-- SLIDE 2: Timer 3 e LCD -->
-            <div id="timer-lcd" class="code-section">
-                <div class="code-header">
-                    <div class="code-title">Timer 3 (PWM) e Controle do
-                        LCD</div>
-                    <div class="window-controls">
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                    </div>
-                </div>
-                <div class="code-content">
-                    <pre><span class="comment">; Registros do Timer 3 - Geração de PWM para o som</span>
+      <!-- SLIDE 2: Timer 3 e LCD -->
+      <div id="timer-lcd" class="code-section">
+        <div class="code-header">
+          <div class="code-title">Timer 3 (PWM) e Controle do LCD</div>
+          <div class="window-controls">
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+          </div>
+        </div>
+        <div class="code-content">
+          <pre><span class="comment">; Registros do Timer 3 - Geração de PWM para o som</span>
 <span class="directive">TIM3_BASE</span>   <span class="keyword">EQU</span> <span class="number">0x40000400</span>
 <span class="directive">TIM3_PSC</span>    <span class="keyword">EQU</span> <span class="directive">TIM3_BASE</span>+<span class="number">0x28</span>  <span class="comment">; Prescaler (controla frequência)</span>
 <span class="directive">TIM3_CCR3</span>   <span class="keyword">EQU</span> <span class="directive">TIM3_BASE</span>+<span class="number">0x3C</span>  <span class="comment">; Duty Cycle (controla timbre)</span>
@@ -459,96 +443,99 @@
 <span class="directive">LED6</span>        <span class="keyword">EQU</span> <span class="number">0x0040</span>  <span class="comment">; PA6</span>
 <span class="directive">LED7</span>        <span class="keyword">EQU</span> <span class="number">0x0020</span>  <span class="comment">; PA5</span>
 <span class="directive">LED8</span>        <span class="keyword">EQU</span> <span class="number">0x0800</span>  <span class="comment">; PA11</span></pre>
-                </div>
-                <div class="explanation">
-                    <h3>Explicação</h3>
-                    <p>
-                        O Timer3 gera o sinal PWM que produz o som no buzzer. O
-                        PSC
-                        (Prescaler) controla a frequência da nota musical, o
-                        CCR3 controla o
-                        duty cycle (timbre) e o ARR define o período da onda
-                        (fixo em 999).
-                        Os LEDs funcionam como um VU meter visual do duty cycle
-                        atual.
-                    </p>
-                </div>
-            </div>
+        </div>
+        <div class="explanation">
+          <h3>Explicação</h3>
+          <p>
+            O Timer3 gera o sinal PWM que produz o som no buzzer. O PSC
+            (Prescaler) controla a frequência da nota musical, o CCR3 controla o
+            duty cycle (timbre) e o ARR define o período da onda (fixo em 999).
+            Os LEDs funcionam como um VU meter visual do duty cycle atual.
+          </p>
+        </div>
+      </div>
 
-            <!-- SLIDE 3: Função main e loop principal -->
-            <div id="main" class="code-section">
-                <div class="code-header">
-                    <div class="code-title">Função Main e Loop Principal</div>
-                    <div class="window-controls">
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                    </div>
-                </div>
-                <div class="code-content">
-                    <pre><span class="label">main</span>
-    <span class="keyword">BL</span> <span class="label">configura_gpio</span>     <span class="comment">; Inicializa GPIOs</span>
-    <span class="keyword">BL</span> <span class="label">configura_timer3</span>   <span class="comment">; Configura PWM</span>
-    <span class="keyword">BL</span> <span class="label">configura_lcd</span>      <span class="comment">; Inicializa display</span>
-    <span class="keyword">MOV</span> <span class="register">R10</span>, <span class="number">#1</span>             <span class="comment">; Oitava inicial = 1</span>
-    <span class="keyword">BL</span> <span class="label">printa_lcd</span>         <span class="comment">; Mostra info inicial</span>
+      <!-- SLIDE 3: Função main e loop principal -->
+      <div id="main" class="code-section">
+        <div class="code-header">
+          <div class="code-title">Função Main e Loop Principal</div>
+          <div class="window-controls">
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+          </div>
+        </div>
+        <div class="code-content">
+          <pre><span class="label">__main</span>
+    <span class="keyword">BL</span> <span class="label">sub_habilita_GPIO</span>      <span class="comment">; Habilita o clock dos GPIOs</span>
+    <span class="keyword">BL</span> <span class="label">sub_jtag2gpio</span>          <span class="comment">; Libera pinos do JTAG para uso como GPIO</span>
+    <span class="keyword">BL</span> <span class="label">sub_gpioa_saida_pp</span>     <span class="comment">; Configura GPIOs (entradas/saídas)</span>
+    <span class="keyword">BL</span> <span class="label">configura_timer3</span>       <span class="comment">; Configura Timer3 para gerar PWM</span>
+    
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="number">#0x01</span>   <span class="comment">; Comando para limpar o LCD</span>
+    <span class="keyword">BL</span> <span class="label">lcd_command</span>  <span class="comment">; Envia comando para o LCD</span>
+    <span class="keyword">BL</span> <span class="label">lcd_init</span>     <span class="comment">; Inicializa o LCD</span>
+    <span class="keyword">MOV</span> <span class="register">R10</span>, <span class="number">#1</span>     <span class="comment">; R10 guarda a oitava (começa em 1)</span>
+    <span class="keyword">MOV</span> <span class="register">R11</span>, <span class="number">#0</span>     <span class="comment">; R11 para uso futuro</span>
+    <span class="keyword">BL</span> <span class="label">printa_lcd</span>   <span class="comment">; Atualiza LCD com informações iniciais</span>
 
-<span class="label">main_loop</span>
-    <span class="keyword">BL</span> <span class="label">tecla_id</span>           <span class="comment">; Verifica botão pressionado</span>
-    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="register">R8</span>             <span class="comment">; R4 = código da tecla</span>
+<span class="label">main_loop</span>		
+    <span class="keyword">BL</span> <span class="label">tecla_id</span>     <span class="comment">; Identifica qual tecla foi pressionada</span>
     
-    <span class="keyword">CMP</span> <span class="register">R4</span>, <span class="number">#0</span>             <span class="comment">; Nenhuma tecla?</span>
-    <span class="keyword">BEQ</span> <span class="label">main_loop</span>
+    <span class="comment">; Anti-bounce: só processa se a tecla mudou</span>
+    <span class="keyword">CMP</span> <span class="register">R8</span>, <span class="register">R7</span>      <span class="comment">; Compara tecla atual com anterior</span>
+    <span class="keyword">MOV</span> <span class="register">R7</span>, <span class="register">R8</span>      <span class="comment">; Salva tecla atual</span>
+    <span class="keyword">BEQ</span> <span class="label">main_loop</span>   <span class="comment">; Se igual, ignora (ainda pressionada)</span>
     
-    <span class="keyword">CMP</span> <span class="register">R4</span>, <span class="number">#1</span>             <span class="comment">; SW1 (oitava 1)?</span>
-    <span class="keyword">BEQ</span> <span class="label">seleciona_oitava1</span>
-    
-    <span class="keyword">CMP</span> <span class="register">R4</span>, <span class="number">#2</span>             <span class="comment">; SW2 (oitava 2)?</span>
-    <span class="keyword">BEQ</span> <span class="label">seleciona_oitava2</span>
-    
-    <span class="keyword">CMP</span> <span class="register">R4</span>, <span class="number">#3</span>             <span class="comment">; SW3 (diminui timbre)?</span>
-    <span class="keyword">BEQ</span> <span class="label">diminui_timbre</span>
-    
-    <span class="keyword">CMP</span> <span class="register">R4</span>, <span class="number">#4</span>             <span class="comment">; SW4 (aumenta timbre)?</span>
-    <span class="keyword">BEQ</span> <span class="label">aumenta_timbre</span>
-    
-    <span class="keyword">CMP</span> <span class="register">R4</span>, <span class="number">#12</span>            <span class="comment">; SW12 (melodia)?</span>
+    <span class="comment">; Testa se é botão de controle ou nota musical</span>
+    <span class="keyword">CMP</span> <span class="register">R8</span>, <span class="number">#1</span>     <span class="comment">; Testa se SW1 foi pressionado</span>
+    <span class="keyword">BEQ.W</span> <span class="label">seleciona_oitava1</span>
+    <span class="keyword">CMP</span> <span class="register">R8</span>, <span class="number">#2</span>     <span class="comment">; Testa se SW2 foi pressionado</span>
+    <span class="keyword">BEQ.W</span> <span class="label">seleciona_oitava2</span>
+    <span class="keyword">CMP</span> <span class="register">R8</span>, <span class="number">#3</span>  <span class="comment">; Testa se o SW3 foi pressionado (aumenta timbre)</span>
+    <span class="keyword">BEQ.W</span> <span class="label">aumenta_timbre</span>
+    <span class="keyword">CMP</span> <span class="register">R8</span>, <span class="number">#4</span>  <span class="comment">; Testa se o SW4 foi pressionado (diminui timbre)</span>
+    <span class="keyword">BEQ.W</span> <span class="label">diminui_timbre</span>
+    <span class="keyword">CMP</span> <span class="register">R8</span>, <span class="number">#12</span>  <span class="comment">; Testa se o SW12 foi pressionado (melodia)</span>
     <span class="keyword">BEQ</span> <span class="label">call_melody</span>
     
-    <span class="keyword">BL</span> <span class="label">toca_nota</span>          <span class="comment">; Toca nota musical</span>
-    <span class="keyword">B</span> <span class="label">main_loop</span></pre>
-                </div>
-                <div class="explanation">
-                    <h3>Explicação</h3>
-                    <p>
-                        Esta é a estrutura principal do programa. Primeiro
-                        fazemos todas as
-                        configurações (GPIO, Timer, LCD). Depois entramos no
-                        loop infinito
-                        que constantemente verifica qual tecla foi pressionada e
-                        executa a
-                        ação correspondente: mudar oitava (SW1/SW2), ajustar
-                        timbre
-                        (SW3/SW4), tocar melodia (SW12), ou tocar uma nota
-                        musical
-                        (SW5-SW11, SW13-SW17).
-                    </p>
-                </div>
-            </div>
+    <span class="comment">; Se chegou aqui, é uma nota musical</span>
+    <span class="keyword">BL</span> <span class="label">printa_duty</span>  <span class="comment">; Atualiza LEDs mostrando duty cycle</span>
+    
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="register">R8</span>      <span class="comment">; Passa o número da tecla para R4</span>
+    <span class="keyword">BL</span> <span class="label">toca_nota</span>    <span class="comment">; Toca a nota correspondente</span>
+    
+    <span class="keyword">B</span> <span class="label">main_loop</span>     <span class="comment">; Volta para o início do loop</span></pre>
+        </div>
+        <div class="explanation">
+          <h3>Explicação</h3>
+          <p>
+            Esta é a estrutura principal do programa. A função __main é o ponto
+            de entrada. Primeiro chamamos todas as sub-rotinas de configuração:
+            habilitamos os clocks dos GPIOs, liberamos pinos do JTAG,
+            configuramos as portas como entradas/saídas, configuramos o Timer3
+            para PWM e inicializamos o LCD. Depois entramos no loop infinito
+            (main_loop) que constantemente verifica qual tecla foi pressionada
+            através da função tecla_id. O código implementa anti-bounce
+            comparando a tecla atual com a anterior. Se for um botão de controle
+            (SW1-SW4, SW12), executa a função correspondente. Se for uma tecla
+            musical (SW5-SW11, SW13-SW17), atualiza os LEDs e toca a nota.
+          </p>
+        </div>
+      </div>
 
-            <!-- SLIDE 4: Configuração do Timer3 -->
-            <div id="config-timer" class="code-section">
-                <div class="code-header">
-                    <div class="code-title">Configuração do Timer 3 para
-                        PWM</div>
-                    <div class="window-controls">
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                    </div>
-                </div>
-                <div class="code-content">
-                    <pre><span class="label">configura_timer3</span>
+      <!-- SLIDE 4: Configuração do Timer3 -->
+      <div id="config-timer" class="code-section">
+        <div class="code-header">
+          <div class="code-title">Configuração do Timer 3 para PWM</div>
+          <div class="window-controls">
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+          </div>
+        </div>
+        <div class="code-content">
+          <pre><span class="label">configura_timer3</span>
     <span class="keyword">PUSH</span> {<span class="register">LR</span>, <span class="register">R0</span>-<span class="register">R1</span>}
     
     <span class="comment">; Habilita clock do Timer 3</span>
@@ -584,104 +571,93 @@
 
     <span class="keyword">POP</span> {<span class="register">R1</span>-<span class="register">R0</span>, <span class="register">LR</span>}
     <span class="keyword">BX</span> <span class="register">LR</span></pre>
-                </div>
-                <div class="explanation">
-                    <h3>Explicação</h3>
-                    <p>
-                        Esta função configura o Timer3 no modo PWM. Primeiro
-                        habilitamos o
-                        clock, depois configuramos o ARR (período fixo em 999),
-                        o modo PWM,
-                        habilitamos a saída do canal 3, definimos o duty cycle
-                        inicial e
-                        finalmente ligamos o timer. Com ARR fixo, só precisamos
-                        mudar o PSC
-                        para alterar a frequência (nota) e o CCR3 para alterar o
-                        timbre.
-                    </p>
-                </div>
-            </div>
+        </div>
+        <div class="explanation">
+          <h3>Explicação</h3>
+          <p>
+            Esta função configura o Timer3 no modo PWM. Primeiro habilitamos o
+            clock, depois configuramos o ARR (período fixo em 999), o modo PWM,
+            habilitamos a saída do canal 3, definimos o duty cycle inicial e
+            finalmente ligamos o timer. Com ARR fixo, só precisamos mudar o PSC
+            para alterar a frequência (nota) e o CCR3 para alterar o timbre.
+          </p>
+        </div>
+      </div>
 
-            <!-- SLIDE 5: Configuração dos GPIOs -->
-            <div id="config-gpio" class="code-section">
-                <div class="code-header">
-                    <div class="code-title">Configuração dos GPIOs</div>
-                    <div class="window-controls">
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                    </div>
-                </div>
-                <div class="code-content">
-                    <pre><span class="label">configura_gpio</span>
-    <span class="keyword">PUSH</span> {<span class="register">LR</span>, <span class="register">R0</span>-<span class="register">R1</span>}
+      <!-- SLIDE 5: Configuração dos GPIOs -->
+      <div id="config-gpio" class="code-section">
+        <div class="code-header">
+          <div class="code-title">Configuração dos GPIOs</div>
+          <div class="window-controls">
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+          </div>
+        </div>
+        <div class="code-content">
+          <pre><span class="label">sub_gpioa_saida_pp</span>
+    <span class="keyword">PUSH</span> {<span class="register">LR</span>}
+    <span class="keyword">PUSH</span> {<span class="register">R0</span>}
+    <span class="keyword">PUSH</span> {<span class="register">R1</span>}
+    <span class="keyword">PUSH</span> {<span class="register">R2</span>}
     
-    <span class="comment">; Habilita clock dos GPIOs A, B, C e AFIO</span>
-    <span class="keyword">LDR</span> <span class="register">R0</span>,=<span class="directive">RCC_APB2ENR</span>
-    <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="directive">hab_gpioc_gpiob_gpioa_afio</span>
-    <span class="keyword">STR</span> <span class="register">R1</span>,[<span class="register">R0</span>]
+    <span class="comment">; Configurando GPIOA como saida para LCD e LEDs</span>
+    <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="directive">GPIOA_CRL</span>
+    <span class="keyword">LDR</span> <span class="register">R0</span>,=<span class="number">0x43344333</span>              <span class="comment">; Pinos 7:0 como saida push-pull</span>
+    <span class="keyword">STR</span> <span class="register">R0</span>,[<span class="register">R1</span>]
+    <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="directive">GPIOA_CRH</span>
+    <span class="keyword">LDR</span> <span class="register">R0</span>,=<span class="number">0x34433443</span>              <span class="comment">; Pinos 13 e 14 como entradas, demais saída</span>
+    <span class="keyword">STR</span> <span class="register">R0</span>,[<span class="register">R1</span>]
+
+    <span class="comment">; Configurando a GPIOB como entrada para os botões SW5-SW11</span>
+    <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="directive">GPIOB_CRL</span>
+    <span class="keyword">LDR</span> <span class="register">R0</span>,=<span class="number">0x4444444B</span>              <span class="comment">; Pinos 7:0 como entradas pull-up</span>
+    <span class="keyword">STR</span> <span class="register">R0</span>,[<span class="register">R1</span>]
+    <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="directive">GPIOB_CRH</span>
+    <span class="keyword">LDR</span> <span class="register">R0</span>,=<span class="number">0x44444444</span>              <span class="comment">; Pinos 15:8 como entradas</span>
+    <span class="keyword">STR</span> <span class="register">R0</span>,[<span class="register">R1</span>]
+
+    <span class="comment">; Configurando GPIOC como entrada para botões SW15-SW17</span>
+    <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="directive">GPIOC_CRH</span>
+    <span class="keyword">LDR</span> <span class="register">R0</span>, [<span class="register">R1</span>]
+    <span class="keyword">LDR</span> <span class="register">R2</span>, =<span class="number">0x44400000</span>
+    <span class="keyword">ORR</span> <span class="register">R0</span>, <span class="register">R0</span>, <span class="register">R2</span>
+    <span class="keyword">STR</span> <span class="register">R0</span>, [<span class="register">R1</span>]
     
-    <span class="comment">; Configura GPIOA - LEDs e LCD (saídas)</span>
-    <span class="keyword">LDR</span> <span class="register">R0</span>,=<span class="directive">GPIOA_CRL</span>
-    <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="number">0x33333333</span>  <span class="comment">; Output 50MHz, Push-pull</span>
-    <span class="keyword">STR</span> <span class="register">R1</span>,[<span class="register">R0</span>]
-    
-    <span class="keyword">LDR</span> <span class="register">R0</span>,=<span class="directive">GPIOA_CRH</span>
-    <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="number">0x333B3333</span>  <span class="comment">; PB0 = PWM (alternate function)</span>
-    <span class="keyword">STR</span> <span class="register">R1</span>,[<span class="register">R0</span>]
-    
-    <span class="comment">; Configura GPIOB - Botões SW5-SW11 (entradas pull-up)</span>
-    <span class="keyword">LDR</span> <span class="register">R0</span>,=<span class="directive">GPIOB_CRL</span>
-    <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="number">0x88888888</span>  <span class="comment">; Input with pull-up/down</span>
-    <span class="keyword">STR</span> <span class="register">R1</span>,[<span class="register">R0</span>]
-    
-    <span class="keyword">LDR</span> <span class="register">R0</span>,=<span class="directive">GPIOB_CRH</span>
-    <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="number">0x88888888</span>
-    <span class="keyword">STR</span> <span class="register">R1</span>,[<span class="register">R0</span>]
-    
-    <span class="keyword">LDR</span> <span class="register">R0</span>,=<span class="directive">GPIOB_ODR</span>
-    <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="number">0x0000FFFF</span>  <span class="comment">; Ativa pull-ups</span>
-    <span class="keyword">STR</span> <span class="register">R1</span>,[<span class="register">R0</span>]
-    
-    <span class="comment">; Configura GPIOC - Botões SW13-SW17 (entradas pull-up)</span>
-    <span class="keyword">LDR</span> <span class="register">R0</span>,=<span class="directive">GPIOC_CRH</span>
-    <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="number">0x88888888</span>
-    <span class="keyword">STR</span> <span class="register">R1</span>,[<span class="register">R0</span>]
-    
-    <span class="keyword">POP</span> {<span class="register">R1</span>-<span class="register">R0</span>, <span class="register">LR</span>}
+    <span class="keyword">POP</span> {<span class="register">R2</span>}
+    <span class="keyword">POP</span> {<span class="register">R1</span>}
+    <span class="keyword">POP</span> {<span class="register">R0</span>}
+    <span class="keyword">POP</span> {<span class="register">LR</span>}
     <span class="keyword">BX</span> <span class="register">LR</span></pre>
-                </div>
-                <div class="explanation">
-                    <h3>Explicação</h3>
-                    <p>
-                        Aqui configuramos todos os pinos das três portas GPIO.
-                        GPIOA
-                        controla os LEDs e o LCD (saídas push-pull). GPIOB e
-                        GPIOC controlam
-                        os botões (entradas com pull-up interno ativado). O pino
-                        PB0 é
-                        configurado como função alternativa para o PWM do
-                        Timer3. Os
-                        pull-ups garantem que os botões leiam nível alto quando
-                        não
-                        pressionados.
-                    </p>
-                </div>
-            </div>
+        </div>
+        <div class="explanation">
+          <h3>Explicação</h3>
+          <p>
+            Aqui configuramos todos os pinos das três portas GPIO. GPIOA
+            controla os LEDs e o LCD (saídas push-pull). GPIOB controla os
+            botões SW5-SW11 conectados aos pinos PB0-PB15 (entradas com pull-up
+            interno). GPIOC controla os botões SW15-SW17 nos pinos PC13-PC15
+            (também entradas com pull-up). Os valores hexadecimais nos
+            registradores CRL e CRH definem o modo de cada pino: '4' para
+            entrada, '3' para saída push-pull, 'B' para função alternativa
+            (PWM). Os pull-ups garantem que os botões leiam nível alto quando
+            não pressionados.
+          </p>
+        </div>
+      </div>
 
-            <!-- SLIDE 6: Seleção de oitavas -->
-            <div id="oitavas" class="code-section">
-                <div class="code-header">
-                    <div class="code-title">Controle de Oitavas (SW1 e
-                        SW2)</div>
-                    <div class="window-controls">
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                    </div>
-                </div>
-                <div class="code-content">
-                    <pre><span class="label">seleciona_oitava1</span>
+      <!-- SLIDE 6: Seleção de oitavas -->
+      <div id="oitavas" class="code-section">
+        <div class="code-header">
+          <div class="code-title">Controle de Oitavas (SW1 e SW2)</div>
+          <div class="window-controls">
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+          </div>
+        </div>
+        <div class="code-content">
+          <pre><span class="label">seleciona_oitava1</span>
     <span class="keyword">MOV</span> <span class="register">R10</span>, <span class="number">#1</span>     <span class="comment">; R10 = 1 (oitava mais grave)</span>
     <span class="keyword">BL</span> <span class="label">printa_lcd</span>   <span class="comment">; Atualiza LCD</span>
     <span class="keyword">B</span> <span class="label">main_loop</span>
@@ -690,36 +666,31 @@
     <span class="keyword">MOV</span> <span class="register">R10</span>, <span class="number">#2</span>     <span class="comment">; R10 = 2 (oitava mais aguda)</span>
     <span class="keyword">BL</span> <span class="label">printa_lcd</span>   <span class="comment">; Atualiza LCD</span>
     <span class="keyword">B</span> <span class="label">main_loop</span></pre>
-                </div>
-                <div class="explanation">
-                    <h3>Explicação</h3>
-                    <p>
-                        SW1 e SW2 controlam qual oitava está ativa. Quando
-                        pressionados,
-                        simplesmente atualizam o registrador R10 (1 para grave,
-                        2 para
-                        aguda) e atualizam o display LCD. Depois, quando uma
-                        nota é tocada,
-                        a função toca_nota consulta R10 para saber qual tabela
-                        de
-                        frequências usar (notas_1 ou notas_2).
-                    </p>
-                </div>
-            </div>
+        </div>
+        <div class="explanation">
+          <h3>Explicação</h3>
+          <p>
+            SW1 e SW2 controlam qual oitava está ativa. Quando pressionados,
+            simplesmente atualizam o registrador R10 (1 para grave, 2 para
+            aguda) e atualizam o display LCD. Depois, quando uma nota é tocada,
+            a função toca_nota consulta R10 para saber qual tabela de
+            frequências usar (notas_1 ou notas_2).
+          </p>
+        </div>
+      </div>
 
-            <!-- SLIDE 7: Ajuste de timbre -->
-            <div id="timbre" class="code-section">
-                <div class="code-header">
-                    <div class="code-title">Ajuste de Timbre/Duty Cycle (SW3 e
-                        SW4)</div>
-                    <div class="window-controls">
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                    </div>
-                </div>
-                <div class="code-content">
-                    <pre><span class="comment">; Aumenta duty cycle em 5%</span>
+      <!-- SLIDE 7: Ajuste de timbre -->
+      <div id="timbre" class="code-section">
+        <div class="code-header">
+          <div class="code-title">Ajuste de Timbre/Duty Cycle (SW3 e SW4)</div>
+          <div class="window-controls">
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+          </div>
+        </div>
+        <div class="code-content">
+          <pre><span class="comment">; Aumenta duty cycle em 5%</span>
 <span class="label">aumenta_timbre</span>
     <span class="keyword">PUSH</span> {<span class="register">LR</span>, <span class="register">R0</span>-<span class="register">R1</span>}
     
@@ -748,42 +719,38 @@
     
     <span class="keyword">POP</span> {<span class="register">R1</span>-<span class="register">R0</span>, <span class="register">LR</span>}
     <span class="keyword">BX</span> <span class="register">LR</span></pre>
-                </div>
-                <div class="explanation">
-                    <h3>Explicação</h3>
-                    <p>
-                        O timbre é controlado mudando o duty cycle (CCR3) da
-                        onda quadrada.
-                        Com ARR=999, temos 1000 steps totais. Cada
-                        incremento/decremento de
-                        50 representa aproximadamente 5% de mudança. SW3 aumenta
-                        (até 94%) e
-                        SW4 diminui (até 9%). Mudar o duty cycle altera o
-                        "colorido" do som
-                        mantendo a mesma frequência.
-                    </p>
-                </div>
-            </div>
+        </div>
+        <div class="explanation">
+          <h3>Explicação</h3>
+          <p>
+            O timbre é controlado mudando o duty cycle (CCR3) da onda quadrada.
+            Com ARR=999, temos 1000 steps totais. Cada incremento/decremento de
+            50 representa aproximadamente 5% de mudança. SW3 aumenta (até 94%) e
+            SW4 diminui (até 9%). Mudar o duty cycle altera o "colorido" do som
+            mantendo a mesma frequência.
+          </p>
+        </div>
+      </div>
 
-            <!-- SLIDE 8: VU Meter dos LEDs -->
-            <div id="leds" class="code-section">
-                <div class="code-header">
-                    <div class="code-title">
-                        VU Meter - LEDs Proporcionais ao Duty Cycle
-                    </div>
-                    <div class="window-controls">
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                    </div>
-                </div>
-                <div class="code-content">
-                    <pre><span class="label">printa_duty</span>
+      <!-- SLIDE 8: VU Meter dos LEDs -->
+      <div id="leds" class="code-section">
+        <div class="code-header">
+          <div class="code-title">
+            VU Meter - LEDs Proporcionais ao Duty Cycle
+          </div>
+          <div class="window-controls">
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+          </div>
+        </div>
+        <div class="code-content">
+          <pre><span class="label">printa_duty</span>
     <span class="keyword">PUSH</span> {<span class="register">LR</span>, <span class="register">R0</span>-<span class="register">R7</span>}
     
     <span class="keyword">LDR</span> <span class="register">R0</span>,=<span class="directive">GPIOA_ODR</span>   <span class="comment">; Registrador de saída</span>
     <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="directive">TIM3_CCR3</span>   <span class="comment">; Duty cycle</span>
-    <span class="keyword">LDR</span> <span class="register">R2</span>,[<span class="register">R1</span>]         <span class="comment">; Valor (0-1000)</span>
+    <span class="keyword">LDR</span> <span class="register">R2</span>,[<span class="register">R1</span>]         <span class="comment">; Valor (0-999)</span>
     <span class="keyword">LDR</span> <span class="register">R5</span>,=<span class="label">leds</span>        <span class="comment">; Tabela de máscaras</span>
     <span class="keyword">MOV</span> <span class="register">R3</span>, <span class="number">#0</span>          <span class="comment">; Contador</span>
     <span class="keyword">MOV</span> <span class="register">R7</span>, <span class="number">#0</span>          <span class="comment">; Acumulador de LEDs</span>
@@ -803,114 +770,110 @@
 
 <span class="comment">; Tabela de máscaras dos LEDs</span>
 <span class="label">leds</span>   <span class="keyword">DCD</span> <span class="directive">LED8</span>, <span class="directive">LED7</span>, <span class="directive">LED6</span>, <span class="directive">LED5</span>, <span class="directive">LED4</span>, <span class="directive">LED3</span>, <span class="directive">LED2</span>, <span class="directive">LED1</span></pre>
-                </div>
-                <div class="explanation">
-                    <h3>Explicação</h3>
-                    <p>
-                        Esta rotina cria um VU meter visual usando os 8 LEDs.
-                        Divide o duty
-                        cycle (0-1000) em 8 faixas de aproximadamente 130 cada.
-                        Para cada
-                        faixa atingida pelo duty cycle atual, acende um LED.
-                        Resultado: duty
-                        50% = 4 LEDs acesos, duty 100% = todos os 8 LEDs acesos.
-                        É uma
-                        representação visual em tempo real do timbre
-                        selecionado.
-                    </p>
-                </div>
-            </div>
+        </div>
+        <div class="explanation">
+          <h3>Explicação</h3>
+          <p>
+            Esta rotina cria um VU meter visual usando os 8 LEDs. Divide o duty
+            cycle (0-999) em 8 faixas de aproximadamente 130 cada. Para cada
+            faixa atingida pelo duty cycle atual, acende um LED. Resultado: duty
+            50% = 4 LEDs acesos, duty 100% = todos os 8 LEDs acesos. É uma
+            representação visual em tempo real do timbre selecionado.
+          </p>
+        </div>
+      </div>
 
-            <!-- SLIDE 9: Atualização do LCD -->
-            <div id="lcd" class="code-section">
-                <div class="code-header">
-                    <div class="code-title">Atualização do Display LCD</div>
-                    <div class="window-controls">
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                    </div>
-                </div>
-                <div class="code-content">
-                    <pre><span class="label">printa_lcd</span>
-    <span class="keyword">PUSH</span> {<span class="register">LR</span>, <span class="register">R0</span>-<span class="register">R5</span>}
+      <!-- SLIDE 9: Atualização do LCD -->
+      <div id="lcd" class="code-section">
+        <div class="code-header">
+          <div class="code-title">Atualização do Display LCD</div>
+          <div class="window-controls">
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+          </div>
+        </div>
+        <div class="code-content">
+          <pre><span class="label">printa_lcd</span>
+    <span class="keyword">PUSH</span> {<span class="register">LR</span>}
+    <span class="keyword">PUSH</span> {<span class="register">R0</span>}
+    <span class="keyword">PUSH</span> {<span class="register">R1</span>}
+
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="number">#0x01</span>   <span class="comment">; Comando para limpar o LCD</span>
+    <span class="keyword">BL</span> <span class="label">lcd_command</span>  
     
-    <span class="comment">; Limpa display e posiciona cursor</span>
-    <span class="keyword">MOV</span> <span class="register">R0</span>, <span class="number">#0x01</span>       <span class="comment">; Clear display</span>
-    <span class="keyword">BL</span> <span class="label">comando_lcd</span>
-    <span class="keyword">BL</span> <span class="label">delay_lcd</span>
+    <span class="comment">; Escreve "8va:" no LCD</span>
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="string">'8'</span>   
+    <span class="keyword">BL</span> <span class="label">lcd_data</span>  
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="string">'v'</span>   
+    <span class="keyword">BL</span> <span class="label">lcd_data</span>  
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="number">#97</span>    <span class="comment">; Código ASCII de 'a'</span>
+    <span class="keyword">BL</span> <span class="label">lcd_data</span>  
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="string">':'</span>   
+    <span class="keyword">BL</span> <span class="label">lcd_data</span>  
     
-    <span class="comment">; Imprime "Oitava: X"</span>
-    <span class="keyword">MOV</span> <span class="register">R0</span>, <span class="string">'O'</span>
-    <span class="keyword">BL</span> <span class="label">escreve_char_lcd</span>
-    <span class="keyword">MOV</span> <span class="register">R0</span>, <span class="string">'i'</span>
-    <span class="keyword">BL</span> <span class="label">escreve_char_lcd</span>
-    <span class="keyword">MOV</span> <span class="register">R0</span>, <span class="string">'t'</span>
-    <span class="keyword">BL</span> <span class="label">escreve_char_lcd</span>
-    <span class="keyword">MOV</span> <span class="register">R0</span>, <span class="string">'a'</span>
-    <span class="keyword">BL</span> <span class="label">escreve_char_lcd</span>
-    <span class="keyword">MOV</span> <span class="register">R0</span>, <span class="string">':'</span>
-    <span class="keyword">BL</span> <span class="label">escreve_char_lcd</span>
-    <span class="keyword">MOV</span> <span class="register">R0</span>, <span class="string">' '</span>
-    <span class="keyword">BL</span> <span class="label">escreve_char_lcd</span>
+    <span class="comment">; Escreve o número da oitava (1 ou 2)</span>
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="register">R10</span>     <span class="comment">; R10 contém a oitava (1 ou 2)</span>
+    <span class="keyword">ADD</span> <span class="register">R4</span>, <span class="string">'0'</span>    <span class="comment">; Converte para ASCII</span>
+    <span class="keyword">BL</span> <span class="label">lcd_data</span>  
     
-    <span class="comment">; Imprime número da oitava (R10)</span>
-    <span class="keyword">ADD</span> <span class="register">R0</span>, <span class="register">R10</span>, <span class="number">#48</span>   <span class="comment">; Converte para ASCII</span>
-    <span class="keyword">BL</span> <span class="label">escreve_char_lcd</span>
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="string">' '</span>    <span class="comment">; Espaço</span>
+    <span class="keyword">BL</span> <span class="label">lcd_data</span>  
     
-    <span class="comment">; Segunda linha: "Duty: XX%"</span>
-    <span class="keyword">MOV</span> <span class="register">R0</span>, <span class="number">#0xC0</span>       <span class="comment">; Posição linha 2</span>
-    <span class="keyword">BL</span> <span class="label">comando_lcd</span>
+    <span class="comment">; Escreve "Timbre:"</span>
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="string">'T'</span>   
+    <span class="keyword">BL</span> <span class="label">lcd_data</span>  
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="string">'i'</span>   
+    <span class="keyword">BL</span> <span class="label">lcd_data</span>  
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="string">'m'</span>   
+    <span class="keyword">BL</span> <span class="label">lcd_data</span>  
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="string">'b'</span>   
+    <span class="keyword">BL</span> <span class="label">lcd_data</span>  
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="string">'r'</span>   
+    <span class="keyword">BL</span> <span class="label">lcd_data</span>  
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="string">'e'</span>   
+    <span class="keyword">BL</span> <span class="label">lcd_data</span>  
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="string">':'</span>   
+    <span class="keyword">BL</span> <span class="label">lcd_data</span>  
     
-    <span class="comment">; ... imprime "Duty: "</span>
+    <span class="keyword">BL</span> <span class="label">print_double_digit</span> <span class="comment">; Imprime o valor do timbre (dois dígitos)</span>
     
-    <span class="comment">; Calcula e imprime porcentagem</span>
-    <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="directive">TIM3_CCR3</span>
-    <span class="keyword">LDR</span> <span class="register">R2</span>,[<span class="register">R1</span>]
-    <span class="keyword">MOV</span> <span class="register">R3</span>, <span class="number">#10</span>
-    <span class="keyword">UDIV</span> <span class="register">R2</span>, <span class="register">R2</span>, <span class="register">R3</span>   <span class="comment">; Divide por 10 (0-100%)</span>
-    <span class="keyword">BL</span> <span class="label">print_double_digit</span>
+    <span class="keyword">MOV</span> <span class="register">R4</span>, <span class="string">'%'</span>   
+    <span class="keyword">BL</span> <span class="label">lcd_data</span>  
     
-    <span class="keyword">MOV</span> <span class="register">R0</span>, <span class="string">'%'</span>
-    <span class="keyword">BL</span> <span class="label">escreve_char_lcd</span>
-    
-    <span class="keyword">BL</span> <span class="label">printa_duty</span>     <span class="comment">; Atualiza LEDs também</span>
-    
-    <span class="keyword">POP</span> {<span class="register">R5</span>-<span class="register">R0</span>, <span class="register">LR</span>}
+    <span class="keyword">POP</span> {<span class="register">R1</span>}
+    <span class="keyword">POP</span> {<span class="register">R0</span>}
+    <span class="keyword">POP</span> {<span class="register">LR</span>}
     <span class="keyword">BX</span> <span class="register">LR</span></pre>
-                </div>
-                <div class="explanation">
-                    <h3>Explicação</h3>
-                    <p>
-                        Esta função atualiza o display LCD com as informações
-                        atuais. Na
-                        primeira linha mostra a oitava selecionada (1 ou 2). Na
-                        segunda
-                        linha mostra o duty cycle atual em porcentagem. Usa
-                        protocolo 4 bits
-                        para comunicação com o LCD, enviando comandos de
-                        controle e dados de
-                        caracteres. Também chama printa_duty para atualizar os
-                        LEDs
-                        simultaneamente.
-                    </p>
-                </div>
-            </div>
+        </div>
+        <div class="explanation">
+          <h3>Explicação</h3>
+          <p>
+            Esta função atualiza o display LCD mostrando as informações atuais.
+            Primeiro limpa o LCD, depois escreve "8va:" (abreviação musical de
+            oitava) seguido do número que está guardado em R10. Depois tem um
+            espaço e escreve "Timbre:". Em seguida chama a print_double_digit
+            que faz a conversão do CCR3 para porcentagem e imprime os dois
+            dígitos. No final adiciona o símbolo de porcentagem. O formato final
+            fica: "8va:1 Timbre:50%" (tudo em uma linha).
+          </p>
+        </div>
+      </div>
 
-            <!-- SLIDE 10: Tabelas de frequências -->
-            <div id="tabelas" class="code-section">
-                <div class="code-header">
-                    <div class="code-title">
-                        Tabelas de Frequências das Notas Musicais
-                    </div>
-                    <div class="window-controls">
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                    </div>
-                </div>
-                <div class="code-content">
-                    <pre><span class="comment">; Tabela de mapeamento: tecla física → índice da nota</span>
+      <!-- SLIDE 10: Tabelas de frequências -->
+      <div id="tabelas" class="code-section">
+        <div class="code-header">
+          <div class="code-title">
+            Tabelas de Frequências das Notas Musicais
+          </div>
+          <div class="window-controls">
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+          </div>
+        </div>
+        <div class="code-content">
+          <pre><span class="comment">; Tabela de mapeamento: tecla física → índice da nota</span>
             <span class="keyword">AREA</span> <span class="label">t_p_n</span>, <span class="directive">DATA</span>, <span class="directive">READONLY</span>
 <span class="label">teclas</span>      <span class="keyword">DCD</span>  <span class="number">5, 13, 6, 14, 7, 8, 15, 9, 16, 10, 17, 11, 12, 0</span>
 
@@ -928,37 +891,31 @@
 <span class="comment">; Melodia automática (SW12) - "Brilha Brilha Estrelinha"</span>
             <span class="keyword">AREA</span> <span class="label">melodia</span>, <span class="directive">DATA</span>, <span class="directive">READONLY</span>
 <span class="label">notasM</span>      <span class="keyword">DCD</span> <span class="number">0, 274, 0, 274, 0, 183, 0, 183...</span></pre>
-                </div>
-                <div class="explanation">
-                    <h3>Explicação</h3>
-                    <p>
-                        As tabelas contêm valores de PSC pré-calculados para
-                        cada nota
-                        musical. Com ARR=999, a fórmula para calcular a
-                        frequência é: f =
-                        72MHz / (PSC+1) / 1000. Por exemplo, para Dó (261.63
-                        Hz): PSC =
-                        (72.000.000 / 261.63 / 1000) - 1 ≈ 274. A oitava 2 tem
-                        frequências
-                        2x maiores, então PSC é aproximadamente metade da oitava
-                        1.
-                    </p>
-                </div>
-            </div>
+        </div>
+        <div class="explanation">
+          <h3>Explicação</h3>
+          <p>
+            As tabelas contêm valores de PSC pré-calculados para cada nota
+            musical. Com ARR=999, a fórmula para calcular a frequência é: f =
+            72MHz / (PSC+1) / 1000. Por exemplo, para Dó (261.63 Hz): PSC =
+            (72.000.000 / 261.63 / 1000) - 1 ≈ 274. A oitava 2 tem frequências
+            2x maiores, então PSC é aproximadamente metade da oitava 1.
+          </p>
+        </div>
+      </div>
 
-            <!-- SLIDE 11: Scan de teclas -->
-            <div id="scan" class="code-section">
-                <div class="code-header">
-                    <div class="code-title">Scan de Teclas - Leitura dos
-                        GPIOs</div>
-                    <div class="window-controls">
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                    </div>
-                </div>
-                <div class="code-content">
-                    <pre><span class="label">tecla_id</span>
+      <!-- SLIDE 11: Scan de teclas -->
+      <div id="scan" class="code-section">
+        <div class="code-header">
+          <div class="code-title">Scan de Teclas - Leitura dos GPIOs</div>
+          <div class="window-controls">
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+          </div>
+        </div>
+        <div class="code-content">
+          <pre><span class="label">tecla_id</span>
     <span class="keyword">LDR</span> <span class="register">R0</span>,=<span class="directive">GPIOA_IDR</span>   <span class="comment">; Lê porta A</span>
     <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="directive">GPIOB_IDR</span>   <span class="comment">; Lê porta B</span>
     <span class="keyword">LDR</span> <span class="register">R2</span>,=<span class="directive">GPIOC_IDR</span>   <span class="comment">; Lê porta C</span>
@@ -982,101 +939,92 @@
     <span class="keyword">BXCC</span> <span class="register">LR</span>
 
     <span class="comment">; ... (continua para SW2, SW1, SW5-SW17) ...</span></pre>
-                </div>
-                <div class="explanation">
-                    <h3>Explicação</h3>
-                    <p>
-                        Esta função faz o scan de todos os botões conectados nos
-                        três GPIOs.
-                        Lê os registradores de entrada (IDR) das três portas,
-                        usa LSLS
-                        (shift left set flags) para deslocar os bits um por um,
-                        e testa o
-                        carry flag. Como os botões usam lógica negativa
-                        (pull-up), carry
-                        clear (0) indica botão pressionado. Retorna o número da
-                        tecla
-                        pressionada em R8 (1-17).
-                    </p>
-                </div>
-            </div>
+        </div>
+        <div class="explanation">
+          <h3>Explicação</h3>
+          <p>
+            Esta função faz o scan de todos os botões conectados nos três GPIOs.
+            Lê os registradores de entrada (IDR) das três portas, usa LSLS
+            (shift left set flags) para deslocar os bits um por um, e testa o
+            carry flag. Como os botões usam lógica negativa (pull-up), carry
+            clear (0) indica botão pressionado. Retorna o número da tecla
+            pressionada em R8 (1-17).
+          </p>
+        </div>
+      </div>
 
-            <!-- SLIDE 12: Tocar nota -->
-            <div id="tocar" class="code-section">
-                <div class="code-header">
-                    <div class="code-title">
-                        Reprodução de Notas - Configuração do Timer
-                    </div>
-                    <div class="window-controls">
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                    </div>
-                </div>
-                <div class="code-content">
-                    <pre><span class="label">toca_nota</span>
-    <span class="keyword">PUSH</span> {<span class="register">LR</span>, <span class="register">R0</span>-<span class="register">R6</span>}
+      <!-- SLIDE 12: Tocar nota -->
+      <div id="tocar" class="code-section">
+        <div class="code-header">
+          <div class="code-title">
+            Reprodução de Notas - Configuração do Timer
+          </div>
+          <div class="window-controls">
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+          </div>
+        </div>
+        <div class="code-content">
+          <pre><span class="label">toca_nota</span>
+    <span class="keyword">PUSH</span> {<span class="register">LR</span>}
+    <span class="keyword">PUSH</span> {<span class="register">R0</span>}
+    <span class="keyword">PUSH</span> {<span class="register">R1</span>}
+    <span class="keyword">PUSH</span> {<span class="register">R2</span>}
+    <span class="keyword">PUSH</span> {<span class="register">R3</span>}
+    <span class="keyword">PUSH</span> {<span class="register">R5</span>}
+    <span class="keyword">PUSH</span> {<span class="register">R6</span>}
     
-    <span class="comment">; Seleciona tabela baseada na oitava (R10)</span>
-    <span class="keyword">CMP</span> <span class="register">R10</span>, <span class="number">#2</span>
-    <span class="keyword">BEQ</span> <span class="label">usa_notas2</span>
-    <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="label">notas_1</span>+<span class="number">4</span>   <span class="comment">; Oitava 1 (grave)</span>
-    <span class="keyword">B</span> <span class="label">seleciona_nota</span>
+    <span class="comment">; R4 contém o número da tecla pressionada (5-17)</span>
     
-<span class="label">usa_notas2</span>
-    <span class="keyword">LDR</span> <span class="register">R1</span>,=<span class="label">notas_2</span>+<span class="number">4</span>   <span class="comment">; Oitava 2 (aguda)</span>
-
-<span class="label">seleciona_nota</span>
-    <span class="keyword">LDR</span> <span class="register">R0</span>,=<span class="directive">TIM3_PSC</span>    <span class="comment">; Endereço do Prescaler</span>
-    <span class="keyword">LDR</span> <span class="register">R2</span>,=<span class="label">teclas</span>      <span class="comment">; Tabela de mapeamento</span>
-    <span class="keyword">MOV</span> <span class="register">R3</span>, <span class="number">#0</span>          <span class="comment">; Índice</span>
-    <span class="keyword">MOV</span> <span class="register">R5</span>, <span class="number">#0</span>
-
-<span class="label">loop_tecla</span>
-    <span class="keyword">LDR</span> <span class="register">R5</span>, [<span class="register">R2</span>, <span class="register">R3</span>, <span class="directive">LSL</span> <span class="number">#2</span>]  <span class="comment">; Busca tecla na tabela</span>
-    <span class="keyword">CMP</span> <span class="register">R5</span>, <span class="register">R4</span>                <span class="comment">; Compara com tecla pressionada</span>
-    <span class="keyword">ADDNE</span> <span class="register">R3</span>, <span class="register">R3</span>, <span class="number">#1</span>          <span class="comment">; Se diferente, próximo índice</span>
-    <span class="keyword">BNE</span> <span class="label">loop_tecla</span>
+    <span class="comment">; Seleciona tabela de notas baseada na oitava (R10)</span>
+    <span class="keyword">CMP</span> <span class="register">R10</span>, <span class="number">#1</span>
+    <span class="keyword">LDREQ</span> <span class="register">R1</span>, =<span class="label">notas_1</span>   <span class="comment">; Se oitava=1, usa tabela grave</span>
+    <span class="keyword">LDRNE</span> <span class="register">R1</span>, =<span class="label">notas_2</span>   <span class="comment">; Se oitava=2, usa tabela aguda</span>
     
-    <span class="comment">; Achou! Carrega PSC correspondente</span>
-    <span class="keyword">LDR</span> <span class="register">R6</span>, [<span class="register">R1</span>, <span class="register">R3</span>, <span class="directive">LSL</span> <span class="number">#2</span>]  <span class="comment">; notas_X[índice]</span>
-    <span class="keyword">STR</span> <span class="register">R6</span>, [<span class="register">R0</span>]              <span class="comment">; Escreve no Timer</span>
+    <span class="comment">; Carrega valor do PSC correspondente à nota</span>
+    <span class="keyword">LDR</span> <span class="register">R0</span>, =<span class="directive">TIM3_PSC</span>
+    <span class="keyword">LDR</span> <span class="register">R6</span>, [<span class="register">R1</span>, <span class="register">R4</span>, <span class="directive">LSL</span> <span class="number">#2</span>]  <span class="comment">; Busca PSC na tabela: tabela[tecla*4]</span>
+    <span class="keyword">STR</span> <span class="register">R6</span>, [<span class="register">R0</span>]              <span class="comment">; Configura o Timer com nova frequência</span>
     
-    <span class="keyword">POP</span> {<span class="register">R6</span>-<span class="register">R0</span>, <span class="register">LR</span>}
+    <span class="keyword">POP</span> {<span class="register">R6</span>}
+    <span class="keyword">POP</span> {<span class="register">R5</span>}
+    <span class="keyword">POP</span> {<span class="register">R3</span>}
+    <span class="keyword">POP</span> {<span class="register">R2</span>}
+    <span class="keyword">POP</span> {<span class="register">R1</span>}
+    <span class="keyword">POP</span> {<span class="register">R0</span>}
+    <span class="keyword">POP</span> {<span class="register">LR</span>}
     <span class="keyword">BX</span> <span class="register">LR</span></pre>
-                </div>
-                <div class="explanation">
-                    <h3>Explicação</h3>
-                    <p>
-                        Esta é a função central que toca as notas musicais.
-                        Recebe o número
-                        da tecla pressionada (em R4), usa a tabela 'teclas' para
-                        converter
-                        em índice da nota (0-12), verifica qual oitava está
-                        selecionada
-                        (R10), seleciona a tabela correspondente (notas_1 ou
-                        notas_2), busca
-                        o valor de PSC nessa tabela e finalmente escreve no
-                        Timer3. Tudo
-                        isso acontece quase instantaneamente!
-                    </p>
-                </div>
-            </div>
+        </div>
+        <div class="explanation">
+          <h3>Explicação</h3>
+          <p>
+            Esta é a função principal que toca uma nota musical. Recebe o número
+            da tecla pressionada em R4 (valores de 5 a 17), verifica qual oitava
+            está selecionada consultando R10, e usa instruções condicionais
+            (LDREQ/LDRNE) para carregar a tabela apropriada (notas_1 para oitava
+            grave ou notas_2 para oitava aguda). Depois busca o valor de PSC
+            correspondente usando indexação com shift (tecla*4 para acessar
+            words de 32 bits) e finalmente configura o Timer3 escrevendo no
+            registrador PSC. Tudo isso acontece quase instantaneamente!
+          </p>
+        </div>
+      </div>
 
-            <!-- SLIDE 13: Melodia automática -->
-            <div id="melodia" class="code-section">
-                <div class="code-header">
-                    <div class="code-title">
-                        Funcionalidade Extra - Melodia Automática (SW12)
-                    </div>
-                    <div class="window-controls">
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                    </div>
-                </div>
-                <div class="code-content">
-                    <pre><span class="label">call_melody</span>
+      <!-- SLIDE 13: Melodia automática -->
+      <div id="melodia" class="code-section">
+        <div class="code-header">
+          <div class="code-title">
+            Funcionalidade Extra - Melodia Automática (SW12)
+          </div>
+          <div class="window-controls">
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+          </div>
+        </div>
+        <div class="code-content">
+          <pre><span class="label">call_melody</span>
     <span class="keyword">PUSH</span> {<span class="register">LR</span>, <span class="register">R0</span>-<span class="register">R3</span>, <span class="register">R5</span>-<span class="register">R7</span>}
 
     <span class="keyword">LDR</span> <span class="register">R1</span>, =<span class="label">notasM</span>      <span class="comment">; Tabela de notas da melodia</span>
@@ -1098,39 +1046,34 @@
 <span class="label">fim_melody</span>
     <span class="keyword">POP</span> {<span class="register">R7</span>-<span class="register">R5</span>, <span class="register">R3</span>-<span class="register">R0</span>, <span class="register">LR</span>}
     <span class="keyword">BX</span> <span class="register">LR</span></pre>
-                </div>
-                <div class="explanation">
-                    <h3>Explicação</h3>
-                    <p>
-                        Funcionalidade extra implementada no SW12: toca uma
-                        melodia
-                        pré-programada automaticamente. O loop percorre a tabela
-                        notasM (64
-                        posições), carrega cada valor de PSC sequencialmente,
-                        configura o
-                        Timer3 e aguarda um delay entre as notas. É uma
-                        demonstração de como
-                        podemos criar sequências musicais automáticas usando o
-                        mesmo sistema
-                        de geração de frequências.
-                    </p>
-                </div>
-            </div>
+        </div>
+        <div class="explanation">
+          <h3>Explicação</h3>
+          <p>
+            Funcionalidade extra implementada no SW12: toca uma melodia
+            pré-programada automaticamente. O loop percorre a tabela notasM (64
+            posições), carrega cada valor de PSC sequencialmente, configura o
+            Timer3 e aguarda um delay entre as notas. É uma demonstração de como
+            podemos criar sequências musicais automáticas usando o mesmo sistema
+            de geração de frequências.
+          </p>
+        </div>
+      </div>
 
-            <!-- SLIDE 14: Potenciômetro -->
-            <div id="potenciometro" class="code-section">
-                <div class="code-header">
-                    <div class="code-title">
-                        Sobre o Potenciômetro - Por que não foi implementado?
-                    </div>
-                    <div class="window-controls">
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                        <div class="window-btn"></div>
-                    </div>
-                </div>
-                <div class="code-content">
-                    <pre><span class="comment">; Registros ADC que seriam usados:</span>
+      <!-- SLIDE 14: Potenciômetro -->
+      <div id="potenciometro" class="code-section">
+        <div class="code-header">
+          <div class="code-title">
+            Sobre o Potenciômetro - Por que não foi implementado?
+          </div>
+          <div class="window-controls">
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+            <div class="window-btn"></div>
+          </div>
+        </div>
+        <div class="code-content">
+          <pre><span class="comment">; Registros ADC que seriam usados:</span>
                 <span class="directive">ADC1_BASE</span>   <span class="keyword">EQU</span> <span class="number">0x40012400</span>
                 <span class="directive">ADC1_SR</span>     <span class="keyword">EQU</span> <span class="directive">ADC1_BASE</span>+<span class="number">0x0000</span>  <span class="comment">; Status Register</span>
                 <span class="directive">ADC1_DR</span>     <span class="keyword">EQU</span> <span class="directive">ADC1_BASE</span>+<span class="number">0x004C</span>  <span class="comment">; Data Register (0-4095)</span>
@@ -1149,43 +1092,35 @@
                 <span class="comment">; 4. Atualizar TIM3_PSC em tempo real baseado na leitura</span>
                 <span class="comment">;</span>
                 <span class="comment">; Desafio: Ruído e instabilidade nas leituras do ADC</span></pre>
-                </div>
-                <div class="explanation">
-                    <h3>Explicação</h3>
-                    <p>
-                        <strong>O potenciômetro implementaria o efeito de
-                            "pitch bend"</strong>
-                        - um aumento gradual e contínuo da frequência da nota
-                        conforme o
-                        potenciômetro é girado.
-                    </p>
-                    <p>
-                        <strong>Implementação planejada:</strong> Configurar o
-                        ADC para ler
-                        o potenciômetro continuamente, mapear o valor lido
-                        (0-4095) para um
-                        range de PSC entre a nota base e +1 tom, e atualizar o
-                        Timer3 em
-                        tempo real.
-                    </p>
-                    <p>
-                        <strong>Por que não foi implementado?</strong> O
-                        principal desafio
-                        foi que as leituras do ADC apresentaram muita
-                        instabilidade e ruído
-                        elétrico, causando variações indesejadas e "glitches"
-                        audíveis na
-                        frequência. Tentamos implementar filtros de média móvel,
-                        mas o som
-                        ainda ficava inconsistente. Portanto, priorizamos
-                        entregar essas
-                        funcionalidades principais funcionando perfeitamente.
-                    </p>
-                </div>
-            </div>
         </div>
+        <div class="explanation">
+          <h3>Explicação</h3>
+          <p>
+            <strong
+              >O potenciômetro implementaria o efeito de "pitch bend"</strong
+            >
+            - um aumento gradual e contínuo da frequência da nota conforme o
+            potenciômetro é girado.
+          </p>
+          <p>
+            <strong>Implementação planejada:</strong> Configurar o ADC para ler
+            o potenciômetro continuamente, mapear o valor lido (0-4095) para um
+            range de PSC entre a nota base e +1 tom, e atualizar o Timer3 em
+            tempo real.
+          </p>
+          <p>
+            <strong>Por que não foi implementado?</strong> O principal desafio
+            foi que as leituras do ADC apresentaram muita instabilidade e ruído
+            elétrico, causando variações indesejadas e "glitches" audíveis na
+            frequência. Tentamos implementar filtros de média móvel, mas o som
+            ainda ficava inconsistente. Portanto, priorizamos entregar essas
+            funcionalidades principais funcionando perfeitamente.
+          </p>
+        </div>
+      </div>
+    </div>
 
-        <script>
+    <script>
       function scrollToSection(id) {
         const element = document.getElementById(id);
         if (element) {
@@ -1222,5 +1157,5 @@
 
       sections.forEach((section) => observer.observe(section));
     </script>
-    </body>
+  </body>
 </html>
